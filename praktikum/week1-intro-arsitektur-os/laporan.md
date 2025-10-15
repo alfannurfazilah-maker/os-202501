@@ -117,6 +117,10 @@ Tuliskan secara singkat:
 - Bagian yang paling menantang minggu ini adalah cara mengumpulkan tugas lewat github karena sebelumnya tidak pernah memakai github.
 - Cara saya mengatasinya adalah bertanya kepada teman/dosen jika belum paham atau menonton tutorial.
 
+-Perbedaan kernel monolitik , mikrokernel , dan arsitektur berlapis .
+-Contoh OS yang menerapkan tiap model.
+-Analisis: model mana yang paling relevan untuk sistem modern.
+
 ---
 
 **Credit:**  
