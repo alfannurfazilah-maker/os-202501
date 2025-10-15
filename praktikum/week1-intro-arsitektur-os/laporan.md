@@ -1,6 +1,6 @@
 
 # Laporan Praktikum Minggu [1]
-Arsitektur Sistem Operasi Dan Kernel
+# Arsitektur Sistem Operasi Dan Kernel
 
 ---
 
@@ -96,20 +96,34 @@ Perintah dmesg | head menampilkan pesan log awal kernel saat proses booting, yan
 ---
 
 ## Quiz
-1. tiga persamaan fungsi utama sistem operasi. 
-Jawaban: Mengelola sumber daya, mengatur proses, dan menyediakan layanan sistem berkas serta I/O bagi pengguna dan aplikasi.
-2.menjelaskan perbedaan antara mode kernel dan mode pengguna .
-Jawaban: Mode kernel dan mode pengguna memiliki perbedaan utama dalam hal hak akses dan fungsi di dalam sistem operasi. Mode kernel adalah mode di mana sistem operasi memiliki kendali penuh terhadap seluruh sumber daya komputer, seperti CPU, memori, dan perangkat keras. Semua komponen penting seperti kernel dan driver perangkat keras berjalan di mode ini. Karena memiliki hak akses penuh, kesalahan kecil pada mode kernel dapat menyebabkan sistem crash. Sementara itu, mode pengguna adalah mode di mana program atau aplikasi dijalankan dengan hak akses terbatas. Aplikasi tidak dapat langsung berinteraksi dengan perangkat keras dan harus melalui sistem operasi melalui mekanisme seperti system call. Dengan pembatasan ini, keamanan dan stabilitas sistem lebih terjaga karena jika terjadi kesalahan pada aplikasi, hanya aplikasi tersebut yang terpengaruh, bukan keseluruhan sistem.
-3. Menunjuk contoh OS dengan arsitektur monolitik dan mikrokernel.
-Jawaban: Contoh OS berarsitektur monolitik:
+1 Sebutkan tiga fungsi utama sistem operasi:
+- Mengelola Sumber Daya Perangkat Keras
+Sistem operasi bertugas untuk mengelola semua komponen perangkat keras komputer, seperti CPU, memori, dan perangkat input/output
+- Menyediakan Antarmuka Pengguna
+Sistem operasi menyediakan antarmuka yang memungkinkan pengguna berinteraksi dengan komputer. Ini bisa berupa antarmuka berbasis teks (CLI) atau antarmuka grafis (GUI) yang lebih ramah pengguna. Antarmuka ini memudahkan pengguna untuk menjalankan aplikasi, mengelola file, dan mengonfigurasi sistem
+- Mengelola File dan Penyimpanan
+Sistem operasi bertanggung jawab untuk mengatur penyimpanan data dan file. Ini termasuk pengaturan direktori, hak akses file, dan pengelolaan format file yang dapat dibaca dan ditulis oleh sistem komputer.
+
+2 Jelaskan perbedaan antara kernel mode dan user mode:
+Mode Kernel: Mode ini adalah mode di mana komponen sistem operasi inti berfungsi dan mengelola sumber daya perangkat keras. Dalam mode ini, aplikasi tidak dapat langsung berinteraksi dengan perangkat keras, dan jika terjadi gangguan, seluruh sistem operasi mungkin mengalami kerusakan. 
+Mode Pengguna: Mode ini adalah mode di mana aplikasi berjalan dengan akses terbatas ke perangkat keras untuk tujuan keamanan. Dalam mode ini, aplikasi memiliki ruang alamat virtual privat dan tidak dapat mengakses ruang alamat yang dimiliki oleh kernel. Jika satu aplikasi mengalami crash, dampaknya hanya akan dialami aplikasi itu sendiri, tanpa mempengaruhi sistem operasi atau aplikasi lain. 
+Perbedaan utama antara kedua mode ini adalah tingkat hak istimewa atau privilege yang ditawarkan. Mode kernel memiliki akses penuh ke semua sumber daya sistem, sedangkan mode pengguna memiliki akses terbatas untuk menjaga keamanan dan stabilitas sistem
+
+3 Sebutkan contoh OS dengan arsitektur monolithic dan microkernel:
+- Contoh OS dengan Arsitektur Monolithic:
+Arsitektur monolithic memiliki seluruh layanan sistem operasi (seperti manajemen memori, file system, driver, dsb.) berjalan dalam satu ruang kernel (kernel space).
+-Linux (seperti Ubuntu, Debian, Fedora)
 -MS-DOS
--UNIX (versi lama seperti System V, BSD awal)
--Linux (termasuk Ubuntu, Fedora, Debian, dan lainnya — walau modern Linux disebut “monolithic modular kernel
-Contoh OS berarsitektur mikrokernel:
--MINIX
--QNX (banyak digunakan di sistem industri dan otomotif)
--Mach (digunakan di macOS dan iOS sebagai bagian dari Darwin)
--L4 Microkernel
+-Unix (seperti FreeBSD, Solaris)
+-MacOS (sebelum MacOS X)
+- Contoh OS dengan Arsitektur Microkernel:
+Arsitektur microkernel hanya menyediakan layanan inti (seperti IPC, manajemen memori dasar, dan penjadwalan) di kernel, sementara layanan lainnya berjalan di ruang pengguna (user space).
+-Minix
+-QNX
+-GNU Hurd
+-L4 microkernel (dan turunannya: Fiasco.OC, seL4)
+-MacOS X (menggunakan hybrid kernel: XNU, gabungan dari microkernel Mach dan elemen monolithic BSD)
+
 ---
 
 ## Refleksi Diri
@@ -117,10 +131,30 @@ Tuliskan secara singkat:
 - Bagian yang paling menantang minggu ini adalah cara mengumpulkan tugas lewat github karena sebelumnya tidak pernah memakai github.
 - Cara saya mengatasinya adalah bertanya kepada teman/dosen jika belum paham atau menonton tutorial.
 
--Perbedaan kernel monolitik , mikrokernel , dan arsitektur berlapis .
+# Tugas
+Tuliskan ringkasan (±500 kata) mencakup:
+-Perbedaan monolithic kernel, microkernel, dan layered architecture.
 -Contoh OS yang menerapkan tiap model.
 -Analisis: model mana yang paling relevan untuk sistem modern.
+## Jawaban:
+1. Monolithic Kernel
 
+Monolithic kernel adalah arsitektur di mana seluruh layanan sistem operasi seperti manajemen proses, sistem file, manajemen memori, dan device driver dijalankan di dalam ruang kernel. Semua modul ini saling berkomunikasi secara langsung tanpa batas pemisah. Contoh sistem operasi yang menggunakan arsitektur ini adalah Linux, UNIX, dan MS-DOS.
+Kelebihan dari monolithic kernel adalah kinerjanya yang tinggi karena proses komunikasi antar komponen terjadi secara langsung. Namun, kelemahannya adalah kompleksitas tinggi dan risiko besar jika terjadi kesalahan pada salah satu modul, karena dapat menyebabkan seluruh sistem crash.
+
+2. Microkernel
+
+Berbeda dengan monolithic, microkernel hanya menempatkan fungsi-fungsi inti yang sangat penting di dalam kernel, seperti komunikasi antar proses (IPC), manajemen memori dasar, dan manajemen CPU. Layanan lain seperti sistem file, driver perangkat, dan protokol jaringan dijalankan di ruang pengguna (user space).
+Contoh sistem operasi yang menggunakan pendekatan microkernel adalah Minix, QNX, dan sebagian arsitektur macOS (melalui kernel Mach). Kelebihan microkernel adalah stabilitas dan keamanan yang lebih baik karena jika satu layanan gagal, sistem utama tetap berjalan. Namun, kelemahannya terletak pada performa — komunikasi antara kernel dan layanan pengguna bisa menimbulkan overhead atau memperlambat sistem.
+
+3. Layered Architecture
+
+Layered architecture membagi sistem operasi menjadi beberapa lapisan (layer), di mana setiap lapisan memiliki fungsi tertentu dan hanya dapat berinteraksi dengan lapisan di atas atau di bawahnya. Struktur ini membuat desain OS lebih teratur dan mudah dikelola. Contoh sistem operasi yang menggunakan pendekatan ini adalah THE OS dan Windows NT, yang memiliki arsitektur berlapis sekaligus elemen hybrid.
+Kelebihan dari model ini adalah kemudahan pengembangan dan perawatan karena setiap lapisan memiliki tanggung jawab yang jelas. Kekurangannya, model ini dapat menurunkan efisiensi sistem karena komunikasi antar lapisan bisa menjadi lebih panjang.
+
+4. Analisis: Model Paling Relevan untuk Sistem Modern
+Dalam praktik modern, tidak ada satu model yang digunakan secara murni. Banyak sistem operasi modern mengadopsi pendekatan hybrid architecture, yaitu menggabungkan kelebihan dari monolithic dan microkernel. Contohnya, Windows 10, macOS, dan bahkan Linux modern memiliki elemen-elemen hybrid untuk mencapai keseimbangan antara performa, keamanan, dan fleksibilitas.
+Model hybrid ini memungkinkan sistem tetap cepat seperti monolithic kernel, tetapi juga memiliki stabilitas dan keamanan tinggi seperti microkernel. Selain itu, desain berlapis juga sering diadopsi agar proses pengembangan lebih modular dan mudah diperbarui. Dengan demikian, model hybrid yang memadukan konsep microkernel dan layered architecture dianggap paling relevan untuk sistem operasi modern karena dapat menyesuaikan diri dengan kebutuhan perangkat yang beragam, seperti komputer pribadi, server, dan perangkat mobile.
 ---
 
 **Credit:**  
