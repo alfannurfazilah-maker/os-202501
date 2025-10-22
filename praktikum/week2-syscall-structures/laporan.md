@@ -1,25 +1,33 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 2
+Topik: Struktur System Call dan Fungsi Kernel
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Alfan Nur Fadzilah  
+- **NIM**   : 250320575
+- **Kelas** : 1DSRA
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+Tuliskan tujuan praktikum minggu ini:
+- 1.Menjelaskan konsep dan fungsi system call dalam sistem operasi.
+- 2.Mengidentifikasi jenis-jenis system call dan fungsinya.
+- 3.Mengamati alur perpindahan mode user ke kernel saat system call terjadi.
+- 4.Menggunakan perintah Linux untuk menampilkan dan menganalisis system call.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+System call adalah antarmuka (interface) antara program aplikasi/user dan kernel sistem operasi. System call memungkinkan program meminta layanan dari sistem operasi, seperti mengakses file, mengatur proses, atau menggunakan perangkat keras.
+
+Alur Umum System Call:
+- Program user memanggil fungsi system call.
+- Fungsi tersebut berpindah ke mode kernel (melalui interrupt atau trap).
+- Kernel menjalankan layanan yang diminta.
+- Hasil dikembalikan ke program user.
 
 ---
 
@@ -60,12 +68,12 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi utama system call dalam sistem operasi. 
+  - **Jawaban:**  System call berfungsi sebagai jembatan antara program pengguna (user program) dan kernel sistem operasi. Fungsinya adalah untuk memungkinkan program mengakses layanan sistem operasi secara aman dan terkendali.
+2. [Sebutkan 4 kategori system call yang umum digunakan.]  
+   **Jawaban:**  Process Control,File Management,Device Management,Information Maintenance
+3. [Mengapa system call tidak bisa dipanggil langsung oleh user program]  
+   **Jawaban:**  System call tidak bisa dipanggil langsung oleh user program karena membutuhkan hak akses khusus dan harus dijalankan di mode kernel untuk menjamin keamanan, stabilitas, dan kontrol sistem.
 
 ---
 
