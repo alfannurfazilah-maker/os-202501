@@ -40,30 +40,130 @@ Alur Umum System Call:
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+1. **Setup Environment**
+   - Gunakan Linux (Ubuntu/WSL).
+   - Pastikan perintah `strace` dan `man` sudah terinstal.
+   - Konfigurasikan Git (jika belum dilakukan di minggu sebelumnya).
+
+2. **Eksperimen 1 – Analisis System Call**
+   Jalankan perintah berikut:
+   ```bash
+   strace ls
+   ```
+   > Catat 5–10 system call pertama yang muncul dan jelaskan fungsinya.  
+   Simpan hasil analisis ke `results/syscall_ls.txt`.
+
+3. **Eksperimen 2 – Menelusuri System Call File I/O**
+   Jalankan:
+   ```bash
+   strace -e trace=open,read,write,close cat /etc/passwd
+   ```
+   > Analisis bagaimana file dibuka, dibaca, dan ditutup oleh kernel.
+
+4. **Eksperimen 3 – Mode User vs Kernel**
+   Jalankan:
+   ```bash
+   dmesg | tail -n 10
+   ```
+   > Amati log kernel yang muncul. Apa bedanya output ini dengan output dari program biasa?
+
+5. **Diagram Alur System Call**
+   - Buat diagram yang menggambarkan alur eksekusi system call dari program user hingga kernel dan kembali lagi ke user mode.
+   - Gunakan draw.io / mermaid.
+   - Simpan di:
+     ```
+     praktikum/week2-syscall-structure/screenshots/syscall-diagram.png
+     ```
+
+6. **Commit & Push**
+   ```bash
+   git add .
+   git commit -m "Minggu 2 - Struktur System Call dan Kernel Interaction"
+   git push origin main
+   ```  
+
+## D. Tugas & Quiz
+### Tugas
+1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi.  
+2. Buat diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.  
+3. Tulis analisis 400–500 kata tentang:
+   - Mengapa system call penting untuk keamanan OS?
+   -  **Jawaban:** System call sangat penting untuk keamanan sistem operasi (OS) karena menjadi jembatan utama antara program pengguna (user space) dan inti sistem operasi (kernel space). Peranannya sangat krusial karena memberikan kontrol terbatas dan terstruktur terhadap akses ke sumber daya sistem. Berikut adalah beberapa alasan utama mengapa system call penting untuk keamanan OS:
+   - Bagaimana OS memastikan transisi user–kernel berjalan aman?
+   -  **Jawaban:** Mode CPU (User vs Kernel):
+Program user berjalan di mode terbatas (user mode), hanya OS di kernel mode yang punya akses penuh.
+
+System Call sebagai Gerbang Aman:
+Transisi hanya bisa lewat system call — jalur resmi dan dikontrol.
+
+Validasi Argumen:
+Kernel memeriksa semua input dari user untuk mencegah serangan.
+
+Stack Terpisah:
+Kernel pakai stack sendiri, terpisah dari user, untuk keamanan eksekusi
+   - Sebutkan contoh system call yang sering digunakan di Linux.
+   -  **Jawaban:**  -File dan I/O
+
+open() – Membuka file.
+
+read() – Membaca data dari file.
+
+write() – Menulis data ke file.
+
+close() – Menutup file.
+
+lseek() – Mengatur posisi baca/tulis dalam file.
+
+ Proses
+
+fork() – Membuat proses baru.
+
+exec() – Menjalankan program baru.
+
+wait() – Menunggu proses anak selesai.
+
+exit() – Keluar dari proses.
+
+- Memori
+
+mmap() – Memetakan file atau memori ke ruang alamat proses.
+
+brk() – Mengatur batas atas heap proses.
+
+- Keamanan dan Akses
+
+chmod() – Mengubah mode/izin file.
+
+chown() – Mengubah pemilik file.
+
+getuid() / geteuid() – Mendapatkan UID pengguna.
+
+- Jaringan
+
+socket() – Membuat soket jaringan.
+
+bind() – Mengikat alamat ke soket.
+
+connect() – Menghubungkan ke soket jarak jauh.
+
+accept() – Menerima koneksi masuk.
+
+- Informasi Sistem
+
+getpid() – Mendapatkan ID proses.
+
+uname() – Mendapatkan info sistem.
+
+4. Simpan semua hasil di:
+   ```
+   praktikum/week2-syscall-structure/
 ```
 
 ---
 
-## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
 ---
 
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
 
----
-
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
