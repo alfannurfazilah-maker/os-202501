@@ -81,6 +81,15 @@ Alur Umum System Call:
    git commit -m "Minggu 2 - Struktur System Call dan Kernel Interaction"
    git push origin main
    ```  
+## Hasil Eksekusi
+### Eksperimen 1
+![Screnshot](<Screnshots/2025-10-22/192443.png>)
+### Eksperimen 2
+![Screnshot](<Screnshots/2025-10-22/223937.png>)
+
+### Diagram
+![Screnshot](<Screnshots/2025-10-22/121029.png>)
+
 
 ## D. Tugas & Quiz
 ### Tugas
