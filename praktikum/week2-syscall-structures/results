@@ -1,0 +1,20 @@
+1.execve("/bin/ls", ["ls"], 0x7ffd3b4) = 0 
+-berfungsi Menjalankan program ls.
+2.brk(NULL) = 0x563a8c000                                                                             
+-  Berfungsi:mengecek posisi akhir heap.
+3.access("/etc/ld.so.preload", R_OK) = -1                                                           
+- Berfungsi mengecek akses file
+4.openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3  #       
+-Berfungsi: membuka file cache
+5.newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=123456}, AT_EMPTY_PATH) = 0           
+-Berfungsi sebagai Info file
+6.mmap(NULL, 123456, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8c3d400000                            
+-Berfungsi memetakan file ke memori
+7 .close(3) = 0                                                                           
+- Berfungsi menutup file descriptor                     
+8. openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3  
+-Berfungsi membuka library libc
+9.read(3, "\x7fELF...", 832) = 832                            
+-Berfungsi membaca library ke memori
+10.close(3) = 0                                                    
+-Berfungsi menutup file descriptor library
