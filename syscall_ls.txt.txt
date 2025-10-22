@@ -1,0 +1,10 @@
+execve("/bin/ls", ["ls"], 0x7ffd3b4) = 0      # Menjalankan program ls
+brk(NULL) = 0x563a8c000                        # Mengecek posisi akhir heap
+access("/etc/ld.so.preload", R_OK) = -1        # Mengecek akses file
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3  # Membuka file cache
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=123456}, AT_EMPTY_PATH) = 0  # Info file
+mmap(NULL, 123456, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f8c3d400000  # Memetakan file ke memori
+close(3) = 0                                   # Menutup file descriptor
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3  # Membuka library libc
+read(3, "\x7fELF...", 832) = 832             # Membaca library ke memori
+close(3) = 0                                   # Menutup file descriptor library
