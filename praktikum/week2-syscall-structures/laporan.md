@@ -266,8 +266,10 @@ uname() – Mendapatkan info sistem.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?
+-  Semuanya menantang
+- Bagaimana cara Anda mengatasinya?
+-  Cari tau melaui AI atau teman
 
 ---
 
