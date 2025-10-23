@@ -137,10 +137,43 @@ Kernel menutup file:
 
 ## D. Tugas & Quiz
 ### Tugas1. openat("/etc/passwd", O_RDONLY)
-1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi: 
+1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi:
+-  ####   Tabel Observasi Eksperimen `strace`
 
-2. Buat diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.  
-3. Tulis analisis 400–500 kata tentang:
+| No | Perintah yang Dijalankan | System Call | Deskripsi / Fungsi | Hasil / Output |
+|----|---------------------------|--------------|--------------------|----------------|
+| 1 | `strace ls` | `execve()` | Menjalankan program `ls` dan memanggil binary dari `/usr/bin/ls`. | Program `ls` dijalankan dan menampilkan daftar file di direktori. |
+| 2 | `strace ls` | `openat()` | Membuka file konfigurasi atau pustaka seperti `/etc/ld.so.cache`. | Sistem mencari dependensi library. |
+| 3 | `strace ls` | `read()` | Membaca isi file atau library yang dibuka. | Data dari file dibaca ke memori. |
+| 4 | `strace ls` | `write()` | Menulis hasil ke terminal (stdout). | Nama-nama file tampil di layar. |
+| 5 | `strace ls` | `close()` | Menutup file descriptor setelah proses selesai membaca. | File ditutup, sumber daya dilepaskan. |
+| 6 | `strace -e trace=open,read,write,close cat /etc/passwd` | `open()` | Membuka file `/etc/passwd` untuk dibaca. | File berhasil dibuka. |
+| 7 | `strace -e trace=open,read,write,close cat /etc/passwd` | `read()` | Membaca isi file `/etc/passwd`. | Isi file (daftar user sistem) terbaca. |
+| 8 | `strace -e trace=open,read,write,close cat /etc/passwd` | `write()` | Menulis hasil pembacaan ke layar terminal. | Teks dari `/etc/passwd` ditampilkan di layar. |
+| 9 | `strace -e trace=open,read,write,close cat /etc/passwd` | `close()` | Menutup file `/etc/passwd` setelah selesai dibaca. | File ditutup dengan aman. |
+
+---
+
+####   Tabel Observasi Eksperimen `dmesg`
+
+> Catatan: Jika perintah `dmsg` tidak ditemukan, gunakan `dmesg`.  
+> Jalankan:  
+> ```bash
+> dmesg | tail -n 10
+> ```
+> untuk melihat log kernel terbaru.
+
+| No | Waktu Log | Komponen / Modul Kernel | Pesan / Log Output | Keterangan / Interpretasi |
+|----|------------|--------------------------|--------------------|---------------------------|
+| 1 | [ 0.000000 ] | Kernel | `Linux version 5.15.0-94-generic ...` | Informasi versi kernel saat boot. |
+| 2 | [ 2.348900 ] | USB | `usb 1-2: new high-speed USB device number 2` | Perangkat USB baru terdeteksi. |
+| 3 | [ 5.224567 ] | Network | `eth0: link is up` | Koneksi jaringan aktif. |
+| 4 | [ 35.567810 ] | System | `audit: type=1130 audit(...): service started` | Layanan sistem berhasil dijalankan. |
+| 5 | [ 50.000210 ] | Filesystem | `EXT4-fs (sda1): mounted filesystem` | Partisi disk berhasil dimount. |
+
+
+3. Buat diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.  
+4. Tulis analisis 400–500 kata tentang:
    - Mengapa system call penting untuk keamanan OS?
    -  **Jawaban:** System call sangat penting untuk keamanan sistem operasi (OS) karena menjadi jembatan utama antara program pengguna (user space) dan inti sistem operasi (kernel space). Peranannya sangat krusial karena memberikan kontrol terbatas dan terstruktur terhadap akses ke sumber daya sistem. Berikut adalah beberapa alasan utama mengapa system call penting untuk keamanan OS:
    - Bagaimana OS memastikan transisi user–kernel berjalan aman?
