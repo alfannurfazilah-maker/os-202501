@@ -83,11 +83,57 @@ Alur Umum System Call:
    ```  
 ## Hasil Eksekusi
 ### Diagram syscall
-[Screenshot hasil](<screenshots/Screenshot 2025-10-22 121029.png>)
+[Screenshot hasil](<screenshots/Screenshot 2025-10-22 121029.png>) 
 
+### Eksperimen 1
+[Screenshot hasil](<screenshots/Screenshot 2025-10-22 192443.png>)
+
+### Eksperimen 2
+[Screenshot hasil](<screenshots/Screenshot 2025-10-22 223937.png>)
+### Analisis:
+1. openat("/etc/passwd", O_RDONLY)
+
+Kernel mencari dan membuka file:
+
+-  Melakukan lookup path /etc/passwd.
+
+-  Mengecek izin baca.
+
+-  Membuat file descriptor (mis. 3) dan struktur file di kernel.
+
+2. read(3, ..., 4096)
+
+Kernel membaca isi file:
+
+-  Mengecek apakah data ada di page cache (kalau ada, tidak perlu baca dari disk).
+
+-  Jika belum, membaca dari disk ke cache lalu menyalin ke buffer proses.
+
+-  Mengembalikan jumlah byte yang dibaca (mis. 512).
+
+3. write(1, ..., 512)
+
+Kernel menulis ke stdout:
+
+-  Menyalin data dari memori user ke buffer terminal/pipe.
+
+-  Menampilkan hasil ke layar.
+
+4. read(...)=0
+
+-  Menandakan EOF (End of File) — tidak ada data lagi.
+
+5. close(3)
+
+Kernel menutup file:
+
+-  Menghapus FD dari tabel proses.
+
+-  Melepas referensi inode dan buffer terkait.
 
 ## D. Tugas & Quiz
-### Tugas
+### Tugas1. openat("/etc/passwd", O_RDONLY)
+
 1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi.  
 2. Buat diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.  
 3. Tulis analisis 400–500 kata tentang:
