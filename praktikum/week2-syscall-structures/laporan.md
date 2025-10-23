@@ -130,11 +130,15 @@ Kernel menutup file:
 -  Menghapus FD dari tabel proses.
 
 -  Melepas referensi inode dan buffer terkait.
+### Eksperimen 3
+[Screenshot](<screenshots/Screenshot 2025-10-23 122315.png>)
+### Amati log kernel yang muncul. Apa bedanya output ini dengan output dari program biasa?
+-  Output dmesg menampilkan pesan dari kernel (mode kernel), sedangkan output program biasa berasal dari proses di user space.
 
 ## D. Tugas & Quiz
 ### Tugas1. openat("/etc/passwd", O_RDONLY)
+1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi: 
 
-1. Dokumentasikan hasil eksperimen `strace` dan `dmesg` dalam bentuk tabel observasi.  
 2. Buat diagram alur system call dari aplikasi → kernel → hardware → kembali ke aplikasi.  
 3. Tulis analisis 400–500 kata tentang:
    - Mengapa system call penting untuk keamanan OS?
