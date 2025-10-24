@@ -1,44 +1,90 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+# Laporan Praktikum Minggu 3
+### Topik: Manajemen File dan Permission di Linux
 
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Alfan Nur Fadzilah  
+- **NIM**   : 250320575 
+- **Kelas** : 1DSRA
 
 ---
 
-## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+## Tujuan  
+Setelah menyelesaikan tugas ini, mahasiswa mampu:
+- Menggunakan perintah ls, pwd, cd, cat untuk navigasi file dan direktori.
+- Menggunakan chmod dan chown untuk manajemen hak akses file.
+- Menjelaskan hasil output dari perintah Linux dasar.
+- Menyusun laporan praktikum dengan struktur yang benar.
+- Mengunggah dokumentasi hasil ke Git Repository tepat waktu.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Sistem file Linux adalah struktur penyimpanan data yang bersifat hierarkis, di mana semua file dan direktori disusun dalam bentuk pohon yang dimulai dari direktori akar (/). Melalui sistem ini, Linux mengatur bagaimana data disimpan, diakses, dan diorganisasikan sehingga pengguna dapat mengelola file dengan efisien. Setiap komponen dalam sistem Linux, termasuk perangkat keras, dianggap sebagai bagian dari sistem file.
+
+Dalam sistem Linux, setiap file atau direktori memiliki hak akses (permission) yang menentukan siapa yang dapat membaca, menulis, atau mengeksekusi file tersebut. Hak akses ini dibagi menjadi tiga kategori pengguna, yaitu owner (pemilik), group (kelompok), dan others (pengguna lain).
+
+Selain itu, setiap file memiliki kepemilikan yang mencakup pemilik dan kelompok tertentu. Kepemilikan ini dapat diubah dengan perintah chown untuk mengganti pemilik dan chgrp untuk mengganti kelompok. Untuk mengatur izin akses, digunakan perintah chmod, baik dalam bentuk simbolik (misalnya u+rwx) maupun numerik.
 
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
 
----
+1. **Setup Environment**
+   - Gunakan Linux (Ubuntu/WSL).
+   - Pastikan folder kerja berada di dalam direktori repositori Git praktikum:
+     ```
+     praktikum/week3-linux-fs-permission/
+     ```
 
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
+2. **Eksperimen 1 – Navigasi Sistem File**
+   Jalankan perintah berikut:
+   ```bash
+   pwd
+   ls -l
+   cd /tmp
+   ls -a
+   ```
+   - Jelaskan hasil tiap perintah.
+   - Catat direktori aktif, isi folder, dan file tersembunyi (jika ada).
 
+3. **Eksperimen 2 – Membaca File**
+   Jalankan perintah:
+   ```bash
+   cat /etc/passwd | head -n 5
+   ```
+   - Jelaskan isi file dan struktur barisnya (user, UID, GID, home, shell).
+
+4. **Eksperimen 3 – Permission & Ownership**
+   Buat file baru:
+   ```bash
+   echo "Hello <NAME><NIM>" > percobaan.txt
+   ls -l percobaan.txt
+   chmod 600 percobaan.txt
+   ls -l percobaan.txt
+   ```
+   - Analisis perbedaan sebelum dan sesudah chmod.  
+   - Ubah pemilik file (jika memiliki izin sudo):
+   ```bash
+   sudo chown root percobaan.txt
+   ls -l percobaan.txt
+   ```
+   - Catat hasilnya.
+
+5. **Eksperimen 4 – Dokumentasi**
+   - Ambil screenshot hasil terminal dan simpan di:
+     ```
+     praktikum/week3-linux-fs-permission/screenshots/
+     ```
+   - Tambahkan analisis hasil pada `laporan.md`.
+
+6. **Commit & Push**
+   ```bash
+   git add .
+   git commit -m "Minggu 3 - Linux File System & Permission"
+   git push origin main
 ---
 
 ## Hasil Eksekusi
