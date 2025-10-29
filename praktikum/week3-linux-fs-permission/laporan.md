@@ -89,7 +89,7 @@ Selain itu, setiap file memiliki kepemilikan yang mencakup pemilik dan kelompok 
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](<Screenshot 2025-10-29 180259>)
+![Screenshot hasil](<Screenshot/2025-10-29 180259>)
 
 ---
 
