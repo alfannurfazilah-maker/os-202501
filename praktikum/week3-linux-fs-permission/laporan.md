@@ -94,9 +94,25 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+| No | Perintah | Fungsi | Hasil / Penjelasan |
+|----|-----------|--------|--------------------|
+| 1 | `pwd` | Menampilkan direktori kerja saat ini | Output: `/home/alfan` |
+| 2 | `ls -l` | Menampilkan daftar file dan folder secara detail | Menunjukkan folder `praktikum-week-3` dan `results` |
+| 3 | `cd /tmp` | Berpindah ke direktori `/tmp` | Lokasi berpindah ke `/tmp` |
+| 4 | `ls -a` | Menampilkan semua file termasuk yang tersembunyi | Terlihat file seperti `.X11-unix`, `snap-private-tmp`, dll |
+| 5 | `cat /etc/passwd \| head -n 5` | Menampilkan 5 baris pertama dari file `/etc/passwd` | Menampilkan data akun sistem seperti root, daemon, bin, dsb |
+| 6 | `echo "Hello Alfan Nur Fazilah - 250320575" > percobaan.txt` | Membuat file baru dan menulis teks ke dalamnya | File `percobaan.txt` berisi teks tersebut |
+| 7 | `ls -l percobaan.txt` | Melihat izin, pemilik, ukuran, dan tanggal file | Awalnya: `-rw-r--r-- 1 alfan alfan ...` |
+| 8 | `sudo chmod 600 percobaan.txt` | Mengubah izin file menjadi hanya pemilik yang bisa baca dan tulis | Izin berubah menjadi `-rw-------` |
+| 9 | `sudo chown root percobaan.txt` | Mengubah pemilik file menjadi user `root` | Setelah perintah: `root alfan ...` |
+| 10 | `sudo cat percobaan.txt` | Menampilkan isi file (karena sekarang dimiliki root) | Output: `Hello Alfan Nur Fazilah – 250320575` |
+
+
+
+
+
+
+  
 
 ---
 
