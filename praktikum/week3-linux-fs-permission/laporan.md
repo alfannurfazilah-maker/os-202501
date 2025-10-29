@@ -89,7 +89,7 @@ Selain itu, setiap file memiliki kepemilikan yang mencakup pemilik dan kelompok 
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](<Screenshot 2025-10-29 180259>)
 
 ---
 
@@ -106,12 +106,21 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi dari perintah `chmod`?  
+   **Jawaban:**  Perintah chmod berfungsi untuk mengubah izin akses (read, write, execute) pada file atau direktori di sistem Linux.
+2. Apa arti dari kode permission `rwxr-xr--`?  
+   **Jawaban:**  Kode rwxr-xr-- artinya:
+
+Pemilik (user): read, write, execute (rwx)
+
+Grup: read, execute (r-x)
+
+Lainnya (others): read saja (r--)
+
+3.  Jelaskan perbedaan antara `chown` dan `chmod`.   
+   **Jawaban:**  chown digunakan untuk mengubah pemilik (owner) dan grup dari suatu file atau direktori.
+
+chmod digunakan untuk mengubah izin akses (read, write, execute) dari file atau direktori.
 
 ---
 
