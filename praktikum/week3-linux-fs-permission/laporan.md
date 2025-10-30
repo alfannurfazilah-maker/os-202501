@@ -117,7 +117,18 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+1. Perintah chmod digunakan untuk mengatur izin akses file atau direktori, sedangkan chown digunakan untuk mengubah kepemilikan file.
+
+
+2. Sistem Linux memiliki mekanisme keamanan berbasis hak akses (read, write, execute) yang membatasi siapa yang dapat mengakses atau memodifikasi file.
+
+
+3. Praktikum menunjukkan bahwa hanya pengguna dengan hak yang sesuai (misalnya root) yang dapat mengubah izin atau kepemilikan file tertentu.
+
+
+4. Pemahaman tentang izin file penting untuk menjaga keamanan dan integritas sistem operasi Linux.
+
+
 
 ---
 
@@ -142,8 +153,8 @@ chmod digunakan untuk mengubah izin akses (read, write, execute) dari file atau 
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Bagian yang paling menantang minggu ini adalah tidak ada menurut saya semua bagian menantang
+- Cara mengatasinya adalah bertanya kepada teman atau mencari tau di AI
 
 ---
 
