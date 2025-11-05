@@ -1,6 +1,6 @@
 
 # Laporan Praktikum Minggu 4
-Topik: Manajemen Proses dan User di Linux
+## Topik: Manajemen Proses dan User di Linux
 
 ---
 
@@ -152,8 +152,7 @@ Manajemen yang baik menjaga keamanan, stabilitas, dan efisiensi sistem.
 ---
 
 ## Hasil Eksekusi
-
-![Screenshot hasil](<screenshots/eksperimen1week4 bag 1.png>)
+ ![Screenshot hasil](<screenshots/eksperimen1week4 bag 1.png>)
 
 ---
 
