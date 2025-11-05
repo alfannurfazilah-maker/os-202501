@@ -94,7 +94,8 @@ Manajemen yang baik menjaga keamanan, stabilitas, dan efisiensi sistem.
 ```
 
 ## Hasil Eksekusi
-![Screenshot hasil](<screenshots/Screenshot 2025-22-05 230530.png>)
+**eksperimen 1**
+![Screenshot hasil](<screenshots/Screenshot 2025-11-05 230530.png>)
 
 
 ---
