@@ -150,7 +150,7 @@ Manajemen yang baik menjaga keamanan, stabilitas, dan efisiensi sistem.
 ```
 
 ## Hasil Eksekusi
-
+![Screenshot hasil](<scrennshots/eksperimen1week4 bag 1.png>)
 
 
 ---
