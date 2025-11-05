@@ -268,13 +268,14 @@ Praktikum ini menunjukkan cara mengelola user dan proses di Linux. Perintah sepe
    **Jawaban:**  
 User root memiliki hak istimewa di sistem Linux karena ia merupakan superuser, yaitu pengguna dengan kendali penuh terhadap seluruh sistem. Hak istimewa ini memungkinkan root untuk:
 
-Mengakses dan mengubah semua file, termasuk file sistem dan milik pengguna lain.
+- Mengakses dan mengubah semua file, termasuk file sistem dan milik pengguna lain.
 
-Menginstal, menghapus, atau memperbarui perangkat lunak.
+- Menginstal, menghapus, atau memperbarui perangkat lunak.
 
-Mengelola pengguna dan izin akses.
+- Mengelola pengguna dan izin akses.
 
-Menghentikan atau memulai layanan dan proses penting sistem.
+- Menghentikan atau memulai layanan dan proses penting sistem.
+
 ---
 
 ## Refleksi Diri
