@@ -122,18 +122,38 @@ Manajemen yang baik menjaga keamanan, stabilitas, dan efisiensi sistem.
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
+**Eksperimen 1 – Identitas User**
+   
+   ```bash
+   whoami
+   id
+   groups
+   ```
+**Eksperimen 2 – Monitoring Proses**
+   
+   ```bash
+   ps aux | head -10
+   top -n 1
+   ```
+**Eksperimen 3 – Kontrol Proses**
+    
+     ```bash
+     sleep 1000 &
+     ps aux | grep sleep
+     ```
+**Eksperimen 4 – Analisis Hierarki Proses**
+   
+   ```bash
+   pstree -p | head -20
+   ```
+
 ```
 
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+
+![Screenshot hasil](<screenshots/eksperimen1week4 bag 1.png>)
 
 ---
 
