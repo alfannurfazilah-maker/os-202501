@@ -55,8 +55,8 @@ Penjadwalan CPU adalah proses menentukan urutan eksekusi proses agar CPU digunak
 
      | Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
      |------------|------------------|----------------------|------------|-------------|
-     | FCFS | ... | ... | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
-     | SJF | ... | ... | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
+     | FCFS | 8.75 | 14.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+     | SJF | 6.25 | 12.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
 
 4. **Eksperimen 3 – Visualisasi Spreadsheet (Opsional)**
    - Gunakan Excel/Google Sheets untuk membuat perhitungan otomatis:
@@ -94,14 +94,24 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+- Bandingkan hasil rata-rata WT dan TAT antara FCFS & SJF.
+| Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+     |------------|------------------|----------------------|------------|-------------|
+     | FCFS | 8.75 | 14.75 | Sederhana dan mudah diterapkan | Tidak efisien untuk proses panjang |
+     | SJF | 6.25 | 12.25 | Optimal untuk job pendek | Menyebabkan *starvation* pada job panjang |
+- Jelaskan kondisi kapan SJF lebih unggul dari FCFS dan sebaliknya.
+  
+  SJF lebih unggul saat sebagian besar proses memiliki waktu eksekusi (burst time) yang berbeda-beda, terutama jika ada proses pendek yang datang lebih awal.
+Karena SJF memprioritaskan proses dengan burst time paling kecil, maka waktu tunggu total bisa ditekan.
+
+  FCFS lebih baik pada kondisi semua proses memiliki burst time yang hampir sama, atau sistem interaktif di mana urutan kedatangan harus adil dan tidak boleh ada proses “terlantar”.
+- Tambahkan kesimpulan singkat di akhir laporan.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Algoritma SJF menghasilkan performa lebih efisien dibandingkan FCFS karena mampu menurunkan waktu tunggu dan waktu penyelesaian rata-rata.
+Namun, SJF memiliki kelemahan berupa kemungkinan starvation (proses panjang menunggu terlalu lama), sedangkan FCFS lebih adil dan sederhana, tetapi tidak selalu efisien untuk proses yang bervariasi panjangnya.
 
 ---
 
