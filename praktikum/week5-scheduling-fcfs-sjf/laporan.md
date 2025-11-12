@@ -88,8 +88,8 @@ Penjadwalan CPU adalah proses menentukan urutan eksekusi proses agar CPU digunak
 ---
 
 ## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+
+![Screenshot hasil](<screenshots/week 5.png>)
 
 ---
 
@@ -112,6 +112,78 @@ Karena SJF memprioritaskan proses dengan burst time paling kecil, maka waktu tun
 ## Kesimpulan
 Algoritma SJF menghasilkan performa lebih efisien dibandingkan FCFS karena mampu menurunkan waktu tunggu dan waktu penyelesaian rata-rata.
 Namun, SJF memiliki kelemahan berupa kemungkinan starvation (proses panjang menunggu terlalu lama), sedangkan FCFS lebih adil dan sederhana, tetapi tidak selalu efisien untuk proses yang bervariasi panjangnya.
+
+---
+## Tugas
+1. Hitung waiting time dan turnaround time dari minimal 2 skenario FCFS dan SJF.
+
+**Skenario 1**
+ **FCFS**
+
+| Proses | Burst | Arrival | Start | Finish | WT | TAT |
+|:------:|:------:|:--------:|:------:|:-------:|:--:|:--:|
+| P1 | 6 | 0 | 0 | 6 | 0 | 6 |
+| P2 | 8 | 1 | 6 | 14 | 5 | 13 |
+| P3 | 7 | 2 | 14 | 21 | 12 | 19 |
+| P4 | 3 | 3 | 21 | 24 | 18 | 21 |
+
+**Rata-rata WT:** 8.75  
+**Rata-rata TAT:** 14.75
+
+ **FCFS**
+
+| Proses | Burst | Arrival | Start | Finish | WT | TAT |
+|:------:|:------:|:--------:|:------:|:-------:|:--:|:--:|
+| P1 | 6 | 0 | 0 | 6 | 0 | 6 |
+| P2 | 8 | 1 | 6 | 14 | 5 | 13 |
+| P3 | 7 | 2 | 14 | 21 | 12 | 19 |
+| P4 | 3 | 3 | 21 | 24 | 18 | 21 |
+
+**Rata-rata WT:** 6.25  
+**Rata-rata TAT:** 12.25  
+
+**Skenario 2**
+
+**FCFS**
+
+| Proses | Burst | Arrival | Start | Finish | WT | TAT |
+|:------:|:------:|:--------:|:------:|:-------:|:--:|:--:|
+| P1 | 4 | 0 | 0 | 4 | 0 | 4 |
+| P2 | 3 | 1 | 4 | 7 | 3 | 6 |
+| P3 | 1 | 2 | 7 | 8 | 5 | 6 |
+| P4 | 2 | 3 | 8 | 10 | 5 | 7 |
+
+**Rata-rata WT:** 3.25  
+**Rata-rata TAT:** 5.75  
+
+**SJF**
+
+| Proses | Burst | Arrival | Start | Finish | WT | TAT |
+|:------:|:------:|:--------:|:------:|:-------:|:--:|:--:|
+| P1 | 4 | 0 | 0 | 4 | 0 | 4 |
+| P3 | 1 | 2 | 4 | 5 | 2 | 3 |
+| P4 | 2 | 3 | 5 | 7 | 2 | 4 |
+| P2 | 3 | 1 | 7 | 10 | 6 | 9 |
+
+**Rata-rata WT:** 2.5  
+**Rata-rata TAT:** 5.0  
+
+2. Sajikan hasil perhitungan dalam tabel perbandingan (FCFS vs SJF).
+
+ | Algoritma | Avg WT (Skenario 1) | Avg TAT (Skenario 1) | Avg WT (Skenario 2) | Avg TAT (Skenario 2) |
+|:-----------|:------------------:|:--------------------:|:------------------:|:--------------------:|
+| **FCFS** | 8.75 | 14.75 | 3.25 | 5.75 |
+| **SJF** | 6.25 | 12.25 | 2.50 | 5.00 |
+
+3. Analisis kelebihan dan kelemahan tiap algoritma.
+
+- **SJF (Shortest Job First)** lebih unggul pada kondisi di mana proses pendek datang lebih awal atau berselang-seling dengan proses panjang.  
+  Ini karena proses pendek diprioritaskan, sehingga total waktu tunggu berkurang.
+- **FCFS (First Come First Served)** lebih adil dan mudah diterapkan, tetapi cenderung tidak efisien saat ada proses panjang di awal karena proses lain menunggu terlalu lama (**convoy effect**).
+- SJF bisa menyebabkan **starvation**, yaitu proses panjang menunggu terlalu lama bila selalu ada proses pendek yang datang belakangan.
+
+
+4. Simpan seluruh hasil dan analisis ke laporan.md
 
 ---
 
@@ -142,8 +214,8 @@ Kelemahan SJF pada sistem interaktif adalah sulitnya memperkirakan lama waktu ek
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?  semua bagian menantang
+- Bagaimana cara Anda mengatasinya?  mencari tau di AI
 
 ---
 
