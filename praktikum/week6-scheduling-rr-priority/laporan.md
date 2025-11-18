@@ -21,7 +21,16 @@ Topik: Penjadwalan CPU – Round Robin (RR) dan Priority Scheduling
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Round Robin (RR):
+- Setiap proses mendapat jatah waktu kecil (time quantum) secara bergiliran.
+- Jika time quantum habis sebelum proses selesai, proses dipindah ke akhir antrean ready queue.
+- Cocok untuk sistem time-sharing karena memberikan keadilan (fairness).
+- Performa sangat bergantung pada besar kecilnya quantum.
+
+Priority Scheduling:
+- Setiap proses diberi prioritas. CPU selalu memilih proses dengan prioritas tertinggi terlebih dahulu.
+- Ada dua jenis: preemptive (dapat menginterupsi proses lain) dan non-preemptive (tidak menginterupsi).
+- Risiko utama: starvation (proses prioritas rendah tidak pernah jalan), biasanya diatasi dengan aging.
 
 ---
 
