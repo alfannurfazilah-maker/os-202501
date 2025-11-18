@@ -129,18 +129,60 @@ Priority Scheduling:
 
 ---
 
-## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+## Hasil Eksekusi & Analisis
+![hasil eksekusi](<screenshots/eksperimen1-2.png>)
+**Eksperimen 1 – Round Robin (RR)**
+   - Gunakan *time quantum (q)* = 3.  
+   - Hitung *waiting time* dan *turnaround time* untuk tiap proses:
+     
+| Proses | Arrival | Burst | Finish Time | Waiting Time (WT) | Turnaround Time (TAT) |
+|--------|----------|--------|--------------|---------------------|-------------------------|
+| P1     | 0        | 5      | 14           | 9                   | 14                      |
+| P2     | 1        | 3      | 6            | 2                   | 5                       |
+| P3     | 2        | 8      | 22           | 12                  | 20                      |
+| P4     | 3        | 6      | 20           | 11                  | 17                      |
+
+### Rumus
+- **TAT = Finish Time – Arrival**
+- **WT = TAT – Burst**
+   - Simulasikan eksekusi menggunakan Gantt Chart (manual atau spreadsheet).
+ ```
+     | P1 | P2 | P3 | P4 | P1 | P3 | P4 | P3 |
+     0    3    6    9   12    14   17   20   22
+ ```
+
+     
+ - Catat sisa *burst time* tiap putaran.
+
+**Putaran 1 (Waktu 0–12)**
+1. P1 jalan 3 → sisa 2  
+2. P2 jalan 3 → sisa 0 (selesai)  
+3. P3 jalan 3 → sisa 5  
+4. P4 jalan 3 → sisa 3  
+
+Sisa setelah Putaran 1:  
+P1 = 2, P2 = 0, P3 = 5, P4 = 3  
+
+**Putaran 2 (Waktu 12–20)**
+1. P1 jalan 2 → sisa 0 (selesai)  
+2. P3 jalan 3 → sisa 2  
+3. P4 jalan 3 → sisa 0 (selesai)
+
+Sisa setelah Putaran 2:  
+P1 = 0, P3 = 2  
+
+**Putaran 3 (Waktu 20–22)**
+1. P3 jalan 2 → sisa 0 (selesai)
+
+Sisa setelah Putaran 3:  
+P3 = 0  
+
+
 
 ---
 
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
 
----
+
 
 ## Kesimpulan
 Tuliskan 2–3 poin kesimpulan dari praktikum ini.
