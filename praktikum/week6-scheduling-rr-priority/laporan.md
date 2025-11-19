@@ -177,6 +177,104 @@ P1 = 0, P3 = 2
 Sisa setelah Putaran 3:  
 P3 = 0  
 
+**Eksperimen 2 – Priority Scheduling (Non-Preemptive)**
+   - Urutkan proses berdasarkan nilai prioritas (angka kecil = prioritas tinggi).
+
+   Priority kecil = lebih tinggi.
+
+   Urutan eksekusi:
+   
+ P1 → P2 → P4 → P3
+
+(P1 duluan karena dia sudah datang di waktu 0. P2 datang lebih tinggi prioritas tapi baru muncul di waktu 1.)
+
+   - Lakukan perhitungan manual untuk:
+     ```
+     WT[i] = waktu mulai eksekusi - Arrival[i]
+     TAT[i] = WT[i] + Burst[i]
+     ```
+
+     Rumus:
+
+WT = Start Time − Arrival
+
+TAT = WT + Burst
+
+Hasil perhitungan:
+
+- P1
+
+Start = 0
+
+WT = 0 − 0 = 0
+
+TAT = 0 + 5 = 5
+
+- P2
+
+Start = 5
+
+WT = 5 − 1 = 4
+
+TAT = 4 + 3 = 7
+
+- P4
+
+Start = 8
+
+WT = 8 − 3 = 5
+
+TAT = 5 + 6 = 11
+
+- P3
+
+Start = 14
+
+WT = 14 − 2 = 12
+
+TAT = 12 + 8 = 20
+   - Buat tabel perbandingan hasil RR dan Priority.
+
+| Proses | WT (RR) | TAT (RR) | WT (Priority) | TAT (Priority) |
+|--------|----------|------------|----------------|-----------------|
+| P1     | 9        | 14         | 0              | 5               |
+| P2     | 2        | 5          | 4              | 7               |
+| P3     | 12       | 20         | 12             | 20              |
+| P4     | 11       | 17         | 5              | 11              |
+
+**Eksperimen 3**
+![hasil eksekusi](<screenshots/eksperimen3.png>)
+
+ - Ubah *quantum* menjadi 2 dan 5.  
+   - Amati perubahan nilai rata-rata *waiting time* dan *turnaround time*.  
+   - Buat tabel perbandingan efek *quantum*:
+
+| Hasil Eksperimen               | Quantum | Avg Waiting Time | Avg Turnaround Time | Catatan / Efek |
+|-------------------------|---------|-------------------|-----------------------|-------------------------------|
+| Round Robin (RR)        | 3       | 7.75              | 13.75                | Quantum sedang, performa stabil |
+| Round Robin (RR)        | 2       | 9.25              | 14.75                | Quantum kecil → banyak context switch |
+| Round Robin (RR)        | 5       | 7.00              | 12.50                | Quantum besar → lebih sedikit preemption |
+| Priority (Non-Preempt.) | –       | 5.75              | 11.75                | Bergantung prioritas, tidak adil bagi prioritas rendah |
+
+**Eksperimen 4 - Dokumentasi**
+ - Simpan semua hasil tabel dan screenshot ke:
+     ```
+     praktikum/week6-scheduling-rr-priority/screenshots/
+     ```
+ - Buat tabel perbandingan seperti berikut:
+
+| Algoritma | Avg Waiting Time | Avg Turnaround Time | Kelebihan | Kekurangan |
+|-----------|------------------|----------------------|-----------|------------|
+| RR (q = 3) | 7.75 | 13.75 | Adil terhadap semua proses karena setiap proses mendapat jatah waktu | Tidak efisien jika quantum tidak tepat (terlalu kecil → banyak context switch) |
+| Priority (Non-Preemptive) | 5.75 | 11.75 | Efisien untuk mengeksekusi proses yang lebih penting lebih cepat | Potensi starvation pada proses berprioritas rendah |
+
+
+
+
+
+
+
+
 
 
 ---
