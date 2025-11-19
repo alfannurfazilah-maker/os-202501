@@ -283,7 +283,8 @@ TAT = 12 + 8 = 20
 
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+
+Berdasarkan seluruh eksperimen yang telah dilakukan, dapat disimpulkan bahwa setiap algoritma penjadwalan CPU memiliki karakteristik dan performa yang berbeda tergantung pada mekanisme kerja dan parameter yang digunakan.
 
 ---
 
@@ -317,8 +318,8 @@ Algoritma priority dapat menyebabkan starvation karena beberapa faktor, antara l
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini? semua bagian menantang
+- Bagaimana cara Anda mengatasinya?  mencari tau di AI atau bertanya ke teman
 
 ---
 
