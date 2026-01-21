@@ -77,19 +77,47 @@ Simulasi algoritma penjadwalan CPU merupakan bagian penting dalam pembelajaran s
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](screenshots/week9.png)
 
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+**1.Alur Program**
+
+Program simulasi penjadwalan CPU menggunakan algoritma First Come First Served (FCFS) dimulai dengan mendefinisikan dataset proses yang berisi arrival time dan burst time. Proses kemudian dieksekusi secara berurutan sesuai waktu kedatangan.
+
+Program menyimpan waktu berjalan CPU (current time) yang digunakan untuk menghitung waiting time, yaitu selisih antara waktu CPU mulai mengeksekusi proses dengan arrival time. Selanjutnya, turnaround time dihitung sebagai penjumlahan waiting time dan burst time. Setelah semua proses selesai dieksekusi, program menghitung dan menampilkan rata-rata waiting time dan turnaround time dalam bentuk tabel.
+
+**2.Perbandingan Hasil Simulasi dengan Perhitungan Manual**
+
+Hasil simulasi menunjukkan nilai waiting time dan turnaround time yang sama persis dengan hasil perhitungan manual yang telah dilakukan pada minggu sebelumnya. Hal ini membuktikan bahwa logika algoritma FCFS dalam program telah diimplementasikan dengan benar.
+
+Perbedaannya terletak pada proses pengerjaan, di mana perhitungan manual membutuhkan ketelitian tinggi dan waktu yang lebih lama, sedangkan simulasi dapat menghasilkan hasil secara otomatis, cepat, dan konsisten tanpa risiko kesalahan perhitungan.
+
+**3.Kelebihan dan Keterbatasan Simulasi**
+
+Kelebihan simulasi:
+
+Menghasilkan perhitungan yang cepat dan akurat.
+
+Mengurangi kesalahan manusia dalam perhitungan manual.
+
+Mudah digunakan kembali untuk dataset yang lebih besar.
+
+Memudahkan analisis dan perbandingan algoritma penjadwalan.
+
+Keterbatasan simulasi:
+
+Bergantung pada kebenaran logika program.
+
+Tidak sepenuhnya mencerminkan kondisi sistem nyata.
+
+Hasil simulasi terbatas pada algoritma dan skenario yang diuji.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Simulasi FCFS berhasil dijalankan dan memberikan hasil yang sesuai dengan teori serta perhitungan manual.
 
 ---
 
@@ -108,8 +136,10 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?
+  semuanya menantang  
+- Bagaimana cara Anda mengatasinya?
+  bertanya kepada AI
 
 ---
 
