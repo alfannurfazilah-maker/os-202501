@@ -74,25 +74,44 @@ Deteksi deadlock adalah mekanisme yang digunakan sistem operasi untuk mengidenti
    git add .
    git commit -m "Minggu 11 - Deadlock Detection"
    git push origin main
-   ```
-
 ---
+
+
+
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
+![Screenshot hasil](screenshots/week11.png)
 
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+ | Proses | Status |
+|------|--------|
+| P1 | Deadlock |
+| P2 | Deadlock |
+| P3 | Deadlock |
+
+
+Berdasarkan hasil simulasi, sistem terdeteksi berada dalam kondisi deadlock. Semua proses saling menunggu resource yang sedang dialokasikan oleh proses lain sehingga tidak ada proses yang dapat melanjutkan eksekusi.
+
+Deadlock terjadi karena keempat kondisi deadlock terpenuhi, yaitu:
+1. Mutual Exclusion: Resource hanya dapat digunakan oleh satu proses pada satu waktu.
+2. Hold and Wait: Setiap proses menahan satu resource sambil menunggu resource lain.
+3. No Preemption: Resource tidak dapat diambil secara paksa dari proses.
+4. Circular Wait: Terjadi siklus menunggu antar proses (P1 → P2 → P3 → P1).
+
+Dengan adanya circular wait, sistem tidak dapat keluar dari kondisi ini tanpa intervensi eksternal.
+
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+Berdasarkan hasil simulasi algoritma deteksi deadlock, sistem teridentifikasi berada dalam kondisi deadlock. Hal ini ditunjukkan oleh adanya siklus ketergantungan antar proses, di mana setiap proses menahan satu resource dan menunggu resource lain yang sedang digunakan oleh proses lain.
+
+Hasil deteksi menunjukkan bahwa proses P1, P2, dan P3 terlibat dalam deadlock. Kondisi ini terjadi karena keempat syarat deadlock terpenuhi, yaitu mutual exclusion, hold and wait, no preemption, dan circular wait.
+
+Dengan menggunakan algoritma deteksi deadlock, kondisi deadlock dapat diidentifikasi secara sistematis sehingga membantu administrator sistem dalam mengambil tindakan untuk mencegah atau menangani deadlock pada sistem operasi.
 
 ---
 
@@ -135,8 +154,8 @@ Dibutuhkan mekanisme pemulihan yang dapat mengganggu proses yang sedang berjalan
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?  semuanya menantang
+- Bagaimana cara Anda mengatasinya?  bertanya ke AI
 
 ---
 
