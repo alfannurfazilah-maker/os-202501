@@ -1,33 +1,83 @@
-
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
-
+# Laporan Praktikum Minggu 13
+Topik: Docker – Resource Limit (CPU & Memori)
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  : Alfan Nur Fadzilah
+- **NIM**   : 250320575
+- **Kelas** : 1DSRA
 
 ---
 
 ## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+1. Menulis Dockerfile sederhana untuk sebuah aplikasi/skrip.
+2. Membangun image dan menjalankan container.
+3. Menjalankan container dengan pembatasan **CPU** dan **memori**.
+4. Mengamati dan menjelaskan perbedaan eksekusi container dengan dan tanpa limit resource.
+5. Menyusun laporan praktikum secara runtut dan sistematis.
 
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+Resource limit CPU dan memori pada Docker merupakan fitur penting dalam manajemen container. Dengan membatasi penggunaan sumber daya menggunakan mekanisme yang disediakan Docker dan cgroups, sistem dapat berjalan lebih stabil, efisien, dan terkontrol, terutama pada lingkungan dengan banyak container yang berjalan secara bersamaan.
 
 ---
 
 ## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
+1. **Persiapan Lingkungan**
+
+   - Pastikan Docker terpasang dan berjalan.
+   - Verifikasi:
+     ```bash
+     docker version
+     docker ps
+     ```
+
+2. **Membuat Aplikasi/Skrip Uji**
+
+   Buat program sederhana di folder `code/` (bahasa bebas) yang:
+   - Melakukan komputasi berulang (untuk mengamati limit CPU), dan/atau
+   - Mengalokasikan memori bertahap (untuk mengamati limit memori).
+
+3. **Membuat Dockerfile**
+
+   - Tulis `Dockerfile` untuk menjalankan program uji.
+   - Build image:
+     ```bash
+     docker build -t week13-resource-limit .
+     ```
+
+4. **Menjalankan Container Tanpa Limit**
+
+   - Jalankan container normal:
+     ```bash
+     docker run --rm week13-resource-limit
+     ```
+   - Catat output/hasil pengamatan.
+
+5. **Menjalankan Container Dengan Limit Resource**
+
+   Jalankan container dengan batasan resource (contoh):
+   ```bash
+   docker run --rm --cpus="0.5" --memory="256m" week13-resource-limit
+   ```
+   Catat perubahan perilaku program (mis. lebih lambat, error saat memori tidak cukup, dll.).
+
+6. **Monitoring Sederhana**
+
+   - Jalankan container (tanpa `--rm` jika perlu) dan amati penggunaan resource:
+     ```bash
+     docker stats
+     ```
+   - Ambil screenshot output eksekusi dan/atau `docker stats`.
+
+7. **Commit & Push**
+
+   ```bash
+   git add .
+   git commit -m "Minggu 13 - Docker Resource Limit"
+   git push origin main
+   ```
 
 ---
 
@@ -60,12 +110,17 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Mengapa container perlu dibatasi CPU dan memori?
+   
+   **Jawaban:** Pembatasan CPU dan memori pada container diperlukan untuk menjaga stabilitas, efisiensi, dan keandalan sistem, serta memastikan setiap aplikasi berjalan sesuai dengan kapasitas yang telah ditentukan.
+   
+2. Apa perbedaan VM dan container dalam konteks isolasi resource?
+
+   **Jawaban:**  VM memberikan isolasi resource yang lebih kuat dan ketat, namun dengan overhead yang tinggi. Sebaliknya, container menawarkan isolasi resource yang lebih ringan dan efisien, tetapi memerlukan pengaturan resource limit yang baik agar tidak saling mengganggu.
+   
+3. Apa dampak limit memori terhadap aplikasi yang boros memori?
+
+   **Jawaban:** Limit memori membuat aplikasi yang boros memori tidak dapat menggunakan RAM secara berlebihan. Dampaknya bisa berupa penurunan performa hingga penghentian aplikasi, namun di sisi lain menjaga stabilitas dan keandalan sistem secara keseluruhan. 
 
 ---
 
