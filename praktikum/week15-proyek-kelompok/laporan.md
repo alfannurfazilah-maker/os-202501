@@ -11,6 +11,27 @@ Topik: Proyek Kelompok – Mini Simulasi Sistem Operasi (Scheduling + Memory + C
 
 ---
 
+
+---
+
+## Tujuan
+
+tujuan praktikum minggu ini.  
+
+> Bekerja kolaboratif dalam tim dengan pembagian peran yang jelas.
+
+> Mengintegrasikan beberapa konsep sistem operasi dalam satu aplikasi sederhana.
+
+> Mengelola proyek menggunakan Git (branch/PR/commit yang rapi).
+
+> Menyusun dokumentasi dan laporan proyek yang sistematis.
+
+
+
+
+
+---
+
 ## Dasar Teori
 1.	CPU Scheduling mengatur urutan eksekusi proses agar penggunaan CPU efisien.
 2.	FCFS dan SJF adalah algoritma penjadwalan CPU, di mana SJF menghasilkan waktu tunggu rata-rata lebih kecil dibanding FCFS.
