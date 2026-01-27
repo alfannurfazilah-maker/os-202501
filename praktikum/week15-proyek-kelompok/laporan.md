@@ -4,17 +4,10 @@ Topik: Proyek Kelompok – Mini Simulasi Sistem Operasi (Scheduling + Memory + C
 
 ---
 
-## Identitas
-- **Nama**  : Alfan Nur Fadzilah
-- **NIM**   : 250320575
-- **Kelas** : 1DSRA
-
----
-
-## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+## Nama Anggota Kelompok
+- Aldiman (250320574)
+- Abdi Hanafi Alghifari (250320570)
+- Alfan Nur Fadzilah (250320575)
 
 ---
 
