@@ -11,85 +11,66 @@ Topik: Penyusunan Laporan Praktikum Format IMRAD
 
 ---
 
-## Tujuan
-1. Menyusun laporan praktikum dengan struktur ilmiah (Pendahuluan–Metode–Hasil–Pembahasan–Kesimpulan).
-2. Menyajikan hasil uji dalam bentuk tabel dan/atau grafik yang jelas.
-3. Menuliskan analisis hasil dengan argumentasi yang logis.
-4. Menyusun sitasi dan daftar pustaka dengan format yang konsisten.
-5. Mengunggah draft laporan ke repositori dengan rapi dan tepat waktu.
+## 1. Pendahuluan
+Simulasi algoritma penjadwalan CPU merupakan bagian penting dalam pembelajaran sistem operasi karena memungkinkan analisis sistematis terhadap kinerja berbagai algoritma penjadwalan. Pada praktikum minggu ke-9, fokus percobaan adalah algoritma First Come First Served (FCFS). Tujuan eksperimen ini adalah mengimplementasikan simulasi FCFS, menjalankannya menggunakan dataset proses, menganalisis hasil berupa waiting time dan turnaround time, serta membandingkan output simulasi dengan perhitungan manual.
 
----
+## 2. Metode
+**Lingkungan Uji:**
+- Bahasa: Python (atau sesuai program yang digunakan)
+- Sistem Operasi: Windows/Linux
+- Tools: Terminal/IDE, Git untuk version control
 
-## Dasar Teori
-Format IMRAD merupakan struktur penulisan yang efektif dalam penyusunan laporan praktikum. Dengan membagi laporan ke dalam bagian Introduction, Methods, Results, dan Discussion, proses praktikum dapat dilaporkan secara jelas, runtut, dan ilmiah, sehingga memudahkan penyampaian informasi dan evaluasi hasil praktikum
+**Dataset/Parameter:**
+| Proses | Arrival Time | Burst Time |
+|-------|--------------|------------|
+| P1 | 0 | 6 |
+| P2 | 1 | 8 |
+| P3 | 2 | 7 |
+| P4 | 3 | 3 |
 
----
+**Langkah Eksperimen:**
+1. Menentukan dataset proses.
+2. Mengimplementasikan algoritma FCFS.
+3. Menghitung waiting time dan turnaround time.
+4. Menjalankan program dan memperoleh hasil.
+5. Membandingkan hasil dengan perhitungan manual.
 
-## Langkah Praktikum
-1. **Menentukan Topik Laporan**
+**Cara Pengukuran:**
+- Waiting time = waktu CPU mulai mengeksekusi proses − arrival time.
+- Turnaround time = waiting time + burst time.
 
-   Pilih 1 topik dari praktikum sebelumnya (mis. Minggu 9/10/11/13) dan tetapkan tujuan eksperimen yang ingin disampaikan.
+## 3. Hasil
+**Tabel Hasil Simulasi FCFS:**
+| Proses | Arrival Time | Burst Time | Waiting Time | Turnaround Time |
+|--------|--------------|------------|--------------|-----------------|
+| P1 | 0 | 6 | 0 | 6 |
+| P2 | 1 | 8 | 5 | 13 |
+| P3 | 2 | 7 | 12 | 19 |
+| P4 | 3 | 3 | 16 | 19 |
 
-2. **Menyiapkan Bahan**
+Rata-rata Waiting Time: **8.25**  
+Rata-rata Turnaround Time: **14.25**
 
-   - Kode/program yang digunakan.
-   - Dataset/parameter uji (jika ada).
-   - Bukti hasil eksekusi (screenshot) dan/atau grafik.
+**Screenshot Hasil Eksekusi:**  
+![Screenshot hasil](screenshots/week9.png)
 
-3. **Menulis Laporan dengan Struktur IMRAD**
 
-   Tulis `praktikum/week14-laporan-imrad/laporan.md` dengan struktur minimal berikut:
-   - **Pendahuluan (Introduction):** latar belakang, rumusan masalah/tujuan.
-   - **Metode (Methods):** lingkungan uji, langkah eksperimen, parameter/dataset, cara pengukuran.
-   - **Hasil (Results):** tabel/grafik hasil uji, ringkasan temuan.
-   - **Pembahasan (Discussion):** interpretasi hasil, keterbatasan, perbandingan teori/ekspektasi.
-   - **Kesimpulan:** 2–4 poin ringkas menjawab tujuan.
 
-4. **Menyajikan Tabel/Grafik**
+## 4. Pembahasan
+Program berjalan sesuai dengan logika dasar FCFS, yaitu proses dieksekusi berdasarkan urutan kedatangannya. Waiting time dan turnaround time dihitung otomatis oleh program menggunakan current time. Hasil simulasi identik dengan perhitungan manual, sehingga implementasi dinyatakan benar.
 
-   - Tabel harus diberi judul/keterangan singkat.
-   - Jika menggunakan grafik: jelaskan sumbu dan arti grafik.
+Simulasi lebih cepat, akurat, dan konsisten dibanding perhitungan manual, terutama untuk dataset besar. Namun, simulasi tetap memiliki keterbatasan seperti ketergantungan pada logika program dan tidak selalu mencerminkan kondisi sistem nyata.
 
-5. **Sitasi dan Daftar Pustaka**
+## 5. Kesimpulan
+- Simulasi FCFS berhasil dijalankan dengan dataset empat proses.
+- Hasil simulasi sesuai dengan teori dan perhitungan manual.
+- Simulasi mempermudah analisis performa algoritma penjadwalan.
+- FCFS mudah diimplementasikan dan menjadi dasar memahami algoritma lain.
 
-   - Cantumkan referensi minimal 2 sumber.
-   - Gunakan format konsisten (mis. daftar bernomor).
+## 6. Daftar Pustaka
+1. Silberschatz, Abraham. *Operating System Concepts*. Wiley.
+2. Stallings, William. *Operating Systems: Internals and Design Principles*.
 
-6. **Commit & Push Draft**
-
-   ```bash
-   git add .
-   git commit -m "Minggu 14 - Draft Laporan IMRAD"
-   git push origin main
-   ```
-
----
-
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
-```
-
----
-
-## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
----
-
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
-
----
-
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ---
 
@@ -129,8 +110,8 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
+- Apa bagian yang paling menantang minggu ini?  semua bagian menantang
+- Bagaimana cara Anda mengatasinya?  mencari tau di AI
 
 ---
 
